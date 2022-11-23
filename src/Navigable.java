@@ -7,6 +7,9 @@ public interface Navigable {
 
     public int getX();
     public int getY();
+    public boolean isTraversable();
+    public void setTraversable(boolean traversable);
+    public ArrayList<Navigable> getExpandedNeighbors();
 
 
 }

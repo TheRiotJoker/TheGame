@@ -33,14 +33,14 @@ public class Searcher {
                         break;
                     }
                 }
-                if(!nodeAlreadyInList) {
+                if(!nodeAlreadyInList && navi.isTraversable()) {
                     searcherSet.add(new SearcherNode(navi, f, arrayNode, currentNode));
                 }
             }
             //the next evaluated node will be the node with the smallest f value (smallest heuristic to the end)
             SearcherNode node = findOptimalNode(searcherSet);
-            if(node == null) {
-                break;
+            if(node == null) { //if there is no other node to be evaluated, there is probably no way
+                return set;
             }
             currentNode = node;
         }while(arrayNode != end);
